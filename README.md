@@ -19,7 +19,7 @@ A simple command-line task manager application built in C#.
 ### Running the application
 
 1. Clone the repository:
-git clone https://github.com/ItsmeAnson/Simple-Task-Manager.git
+git clone https://github.com/Anson-Tng/Simple-Task-Manager.git
 
 2. Navigate to the project directory:
 
