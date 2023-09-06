@@ -75,7 +75,16 @@ namespace TaskManager
 
         public override string ToString()
         {
-            return "\nID: " + _taskId + "\nDescription: " + _description + "\nStatus: " + _isCompleted + "Date addded: " + _taskDate;
+            string statusString;
+            if (_isCompleted)
+            {
+                statusString = "Completed";
+            }
+            else
+            {
+                statusString = "Not completed";
+            }
+            return "\nID: " + _taskId + "\nDescription: " + _description + "\nStatus: " + statusString + "\nDate addded: " + _taskDate;
         }
     }
 }

@@ -24,20 +24,32 @@ namespace TaskManager
             const int descriptionWidth = 25; // Adjust width as needed
             const int statusWidth = 15;
             const int dateWidth = 15;
-
+            
+            
             Console.WriteLine($"\n{"TaskId",-idWidth} {"Description",-descriptionWidth} {"Status",-statusWidth} {"Date added",-dateWidth}\n");
             foreach (var task in tasks)
             {
+                string statusString;
+                if (task.IsCompleted)
+                {
+                    statusString = "Completed";
+                }
+                else
+                {
+                    statusString = "Not completed";
+                }
+
                 if (task.Description.Length > descriptionWidth)
                 {
+                    
                     var firstPart = task.Description.Substring(0, descriptionWidth);
                     var remainingPart = task.Description.Substring(descriptionWidth);
-                    Console.WriteLine($"{task.TaskId,-idWidth} {firstPart,-descriptionWidth} {task.IsCompleted,-statusWidth} {task.TaskDate.ToString("yyyy-MM-dd"),-dateWidth}");
+                    Console.WriteLine($"{task.TaskId,-idWidth} {firstPart,-descriptionWidth} {statusString,-statusWidth} {task.TaskDate.ToString("yyyy-MM-dd"),-dateWidth}");
                     Console.WriteLine($"{"",-idWidth} {remainingPart,-descriptionWidth}");
                 }
                 else
                 {
-                    Console.WriteLine($"{task.TaskId,-idWidth} {task.Description,-descriptionWidth} {task.IsCompleted,-statusWidth}{task.TaskDate.ToString("yyyy-MM-dd"),-dateWidth}");
+                    Console.WriteLine($"{task.TaskId,-idWidth} {task.Description,-descriptionWidth} {statusString,-statusWidth}{task.TaskDate.ToString("yyyy-MM-dd"),-dateWidth}");
                 }
             }
             Console.WriteLine("\n");
